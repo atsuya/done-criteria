@@ -1,0 +1,20 @@
+{
+    "author": "Atsuya Takagi"
+  , "name": "done-criteria"
+  , "version": "0.0.1"
+  , "description": "Easy to use 'async.whilst' like utility"
+  , "repository": {
+        "type": "git"
+      , "url": "git://github.com/atsuya/done-criteria.git"
+    }
+  , "engines": {
+      "node": "~>=0.8.0"
+    }
+  , "dependencies": {
+        "underscore": "1.3.3"
+    }
+  , "devDependencies": {
+        "mocha": "1.3.0"
+      , "should": "0.6.3"
+    }
+}
