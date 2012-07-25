@@ -1,6 +1,9 @@
 done-criteria
 =============
 
+[![Build
+Status](https://secure.travis-ci.org/atsuya/done-criteria.png)](http://travis-ci.org/atsuya/done-criteria)
+
 Easy to use ``async.whilst`` like utility.
 
 
