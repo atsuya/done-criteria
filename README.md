@@ -7,6 +7,13 @@ Status](https://secure.travis-ci.org/atsuya/done-criteria.png)](http://travis-ci
 Easy to use ``async.whilst`` like utility.
 
 
+install
+========
+```
+$ npm install done-criteria
+```
+
+
 examples
 ========
 
