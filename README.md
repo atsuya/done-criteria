@@ -107,16 +107,6 @@ all done!
 ```
 
 
-Install
-=======
-
-Install it with npm:
-
-```
-$ npm install done-criteria
-```
-
-
 License
 ========
 
