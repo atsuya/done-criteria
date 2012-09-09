@@ -4,6 +4,23 @@ var helper = require('./support/helper')
 describe('done-criteria', function() {
   var error = function() { throw new Error('Callback is called'); };
 
+  describe('with count criteria', function() {
+    it('calls callback when all criteria are done', function(done) {
+      var doneCriteria = new DoneCriteria(3, done);
+      doneCriteria.done();
+      doneCriteria.done();
+      doneCriteria.done();
+    });
+    
+    it('does not call callback when criteria are not done', function(done) {
+      var doneCriteria = new DoneCriteria(3, error);
+      doneCriteria.done();
+      doneCriteria.done();
+
+      setTimeout(function() { done(); }, 1500);
+    });
+  });
+
   describe('with unnamed criteria', function() {
     it('calls callback when all criteria are done', function(done) {
       var doneCriteria = new DoneCriteria(['unko', 'geri'], done);
