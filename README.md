@@ -24,7 +24,7 @@ unnamed
 var DoneCriteria = require('../lib/done-criteria')
   , exit = false;
 
-var doneCriteria = new DoneCriteria(['unko', 'geri'], function() {
+var doneCriteria = new DoneCriteria(['unko', 'geri'], function(error) {
   console.log('all done!');
   exit = true;
 });
@@ -46,7 +46,7 @@ loop();
 This code results in:
 
 ```
-$ node examples/unnamed.js 
+$ node examples/unnamed.js
 not done yet...
 not done yet...
 not done yet...
@@ -72,7 +72,7 @@ var doneCriteria = new DoneCriteria(
           , function(name) { console.log('%s is done', name); }
         ]
     }
-  , function() {
+  , function(error) {
       console.log('all done!');
       exit = true;
     }
@@ -98,7 +98,7 @@ loop();
 This code will result in:
 
 ```
-$ node examples/named.js 
+$ node examples/named.js
 not done yet...
 not done yet...
 eat is done
@@ -106,6 +106,42 @@ clean up is done
 all done!
 ```
 
+
+count
+-----
+
+```
+var DoneCriteria = require('../lib/done-criteria')
+  , exit = false;
+
+var doneCriteria = new DoneCriteria(3, function(error) {
+  console.log('all done!');
+  exit = true;
+});
+
+setTimeout(function() { doneCriteria.done(); }, 200);
+setTimeout(function() { doneCriteria.done(); }, 400);
+setTimeout(function() { doneCriteria.done(); }, 600);
+
+var loop = function() {
+  if (exit) {
+    process.exit(0);
+  } else {
+    console.log('not done yet...');
+    setTimeout(loop, 500);
+  }
+};
+loop();
+```
+
+This code will result in:
+
+```
+$ node examples/count.js
+not done yet...
+not done yet...
+all done!
+```
 
 License
 ========
