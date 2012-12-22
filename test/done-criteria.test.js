@@ -83,4 +83,18 @@ describe('done-criteria', function() {
       setTimeout(function() { done(); }, 1500);
     });
   });
+
+  context('with errors', function() {
+    it('calls callback with error', function(done) {
+      var errorMessage = 'error message'
+        , doneCriteria = new DoneCriteria(['unko', 'geri'], function(error) {
+            helper.should.exist(error);
+            error.message.should.equal(errorMessage);
+            done();
+          });
+
+      doneCriteria.done('geri');
+      doneCriteria.error(new Error(errorMessage));
+    });
+  });
 });
