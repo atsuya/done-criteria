@@ -5,6 +5,10 @@ describe('done-criteria', function() {
   var error = function() { throw new Error('Callback is called'); };
 
   describe('with count criteria', function() {
+    it('calls callback immediately when count is 0', function(done) {
+      var doneCriteria = new DoneCriteria(0, function (error) { done(error); });
+    });
+
     it('calls callback when all criteria are done', function(done) {
       var doneCriteria = new DoneCriteria(3, done);
       doneCriteria.done();
@@ -22,6 +26,10 @@ describe('done-criteria', function() {
   });
 
   describe('with unnamed criteria', function() {
+    it('calls callback immediately when criteria is empty', function(done) {
+      var doneCriteria = new DoneCriteria([], function(error) { done(error); });
+    });
+
     it('calls callback when all criteria are done', function(done) {
       var doneCriteria = new DoneCriteria(['unko', 'geri'], done);
       doneCriteria.done('unko');
@@ -38,6 +46,10 @@ describe('done-criteria', function() {
   });
 
   describe('with named criteria', function() {
+    it('calls callback immediately when criteria is empty', function(done) {
+      var doneCriteria = new DoneCriteria({}, function(error) { done(error); });
+    });
+
     it('calls callback when all criteria are done', function(done) {
       var getIngredients = function(name) {
         name.should.eql('get ingredients');
