@@ -5,7 +5,7 @@
       , "url" : "http://atsuya.github.com"
     }
   , "name": "done-criteria"
-  , "version": "0.0.4"
+  , "version": "0.1.0"
   , "description": "Easy to use 'async.whilst' like utility"
   , "main" : "./index.js"
   , "repository": {
